@@ -37,15 +37,11 @@ import javax.servlet.http.HttpServletRequest;
 @RestController
 @RequestMapping("/auth")
 public class AuthController {
-
     private static final Logger LOGGER = LoggerFactory.getLogger(AuthController.class);
-
     @Value("${auth.username:sentinel}")
     private String authUsername;
-
     @Value("${auth.password:sentinel}")
     private String authPassword;
-
     @Autowired
     private AuthService<HttpServletRequest> authService;
 
@@ -54,11 +50,9 @@ public class AuthController {
         if (StringUtils.isNotBlank(DashboardConfig.getAuthUsername())) {
             authUsername = DashboardConfig.getAuthUsername();
         }
-
         if (StringUtils.isNotBlank(DashboardConfig.getAuthPassword())) {
             authPassword = DashboardConfig.getAuthPassword();
         }
-
         /*
          * If auth.username or auth.password is blank(set in application.properties or VM arguments),
          * auth will pass, as the front side validate the input which can't be blank,
@@ -69,7 +63,6 @@ public class AuthController {
             LOGGER.error("Login failed: Invalid username or password, username=" + username);
             return Result.ofFail(-1, "Invalid username or password");
         }
-
         AuthService.AuthUser authUser = new SimpleWebAuthServiceImpl.SimpleWebAuthUserImpl(username);
         request.getSession().setAttribute(SimpleWebAuthServiceImpl.WEB_SESSION_KEY, authUser);
         return Result.ofSuccess(authUser);

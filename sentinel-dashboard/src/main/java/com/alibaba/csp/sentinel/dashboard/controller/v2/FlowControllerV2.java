@@ -52,17 +52,14 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping(value = "/v2/flow")
 public class FlowControllerV2 {
-
     private final Logger logger = LoggerFactory.getLogger(FlowControllerV2.class);
-
     @Autowired
     private InMemoryRuleRepositoryAdapter<FlowRuleEntity> repository;
-
     @Autowired
-    @Qualifier("flowRuleDefaultProvider")
+    @Qualifier("flowRuleNacosProvider")
     private DynamicRuleProvider<List<FlowRuleEntity>> ruleProvider;
     @Autowired
-    @Qualifier("flowRuleDefaultPublisher")
+    @Qualifier("flowRuleNacosPublisher")
     private DynamicRulePublisher<List<FlowRuleEntity>> rulePublisher;
 
     @GetMapping("/rules")

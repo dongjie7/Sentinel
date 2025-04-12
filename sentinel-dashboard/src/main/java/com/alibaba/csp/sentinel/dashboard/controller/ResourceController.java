@@ -39,9 +39,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping(value = "/resource")
 public class ResourceController {
-
     private static Logger logger = LoggerFactory.getLogger(ResourceController.class);
-
     @Autowired
     private SentinelApiClient httpFetcher;
 

@@ -40,7 +40,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping(value = "/app")
 public class AppController {
-
     @Autowired
     private AppManagement appManagement;
 

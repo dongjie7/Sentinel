@@ -34,9 +34,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 @RequestMapping(value = "/registry", produces = MediaType.APPLICATION_JSON_VALUE)
 public class MachineRegistryController {
-
     private final Logger logger = LoggerFactory.getLogger(MachineRegistryController.class);
-
     @Autowired
     private AppManagement appManagement;
 

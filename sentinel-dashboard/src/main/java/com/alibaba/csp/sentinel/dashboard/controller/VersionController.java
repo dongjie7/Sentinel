@@ -28,9 +28,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 public class VersionController {
-
     private static final String VERSION_PATTERN = "-";
-
     @Value("${sentinel.dashboard.version:}")
     private String sentinelDashboardVersion;
 
