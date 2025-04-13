@@ -16,6 +16,7 @@
         <resource.delimiter>@</resource.delimiter>
         <spring.boot.version>2.5.12</spring.boot.version>
         <curator.version>4.0.1</curator.version>
+        <mysql-connector-java.version>8.0.27</mysql-connector-java.version>
     </properties>
 
     <dependencies>
@@ -58,6 +59,21 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <version>${spring.boot.version}</version>
             <scope>test</scope>
+        </dependency>
+
+        <!-- Spring Boot Starter Data JDBC -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jdbc</artifactId>
+            <version>${spring.boot.version}</version>
+        </dependency>
+        <!-- 数据库驱动 -->
+        <!--mysql-->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>${mysql-connector-java.version}</version>
+            <scope>runtime</scope>
         </dependency>
 
         <dependency>

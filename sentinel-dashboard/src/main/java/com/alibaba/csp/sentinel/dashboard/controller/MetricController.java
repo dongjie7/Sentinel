@@ -26,6 +26,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
 import com.alibaba.csp.sentinel.dashboard.domain.Result;
 import com.alibaba.csp.sentinel.dashboard.repository.metric.MetricsRepository;
+import com.alibaba.nacos.common.utils.MapUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -122,13 +123,7 @@ public class MetricController {
         resultMap.put("totalPage", totalPage);
         resultMap.put("pageIndex", pageIndex);
         resultMap.put("pageSize", pageSize);
-
-        Map<String, Iterable<MetricVo>> map2 = new LinkedHashMap<>();
-        // order matters.
-        for (String identity : topResource) {
-            map2.put(identity, map.get(identity));
-        }
-        resultMap.put("metric", map2);
+        resultMap.put("metric", map);
         return Result.ofSuccess(resultMap);
     }
 
